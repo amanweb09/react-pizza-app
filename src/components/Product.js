@@ -25,7 +25,7 @@ const Products = () => {
             <div className="grid grid-cols-5 my-8 gap-24">
                 {
                     products.map((pizza) => {
-                        return <ProductCard pizza={pizza} />
+                        return <ProductCard pizza={pizza} key={pizza.id} />
                     })
                 }
             </div>
