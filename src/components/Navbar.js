@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const cartStyle = {
@@ -22,17 +22,17 @@ const Navbar = () => {
                 </NavLink>
 
                 <ul className="flex items-center">
-                    <li style={{margin: '0 10px'}} className="font-semibold">
+                    <li style={{ margin: '0 10px' }} className="font-semibold">
                         <NavLink to="/">Home</NavLink>
                     </li>
-                    <li className="font-semibold" style={{margin: '0 10px'}}>
+                    <li className="font-semibold" style={{ margin: '0 10px' }}>
                         <NavLink to="/products">Products</NavLink>
                     </li>
                     <li>
                         <NavLink to="/cart">
                             <div style={cartStyle}>
                                 <span className="font-semibold">10</span>
-                                <img style={{width: 30, height: 30}} src="/images/cart.png" alt="" />
+                                <img style={{ width: 30, height: 30 }} src="/images/cart.png" alt="" />
                             </div>
                         </NavLink>
                     </li>
