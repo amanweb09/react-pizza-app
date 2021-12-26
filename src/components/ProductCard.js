@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { CartContext } from '../CartContext';
 
 const ProductCard = (props) => {
+    const [isAdding, setIsAdding] = useState(false);
 
     const { cart, setCart } = useContext(CartContext);
 
@@ -36,6 +37,10 @@ const ProductCard = (props) => {
         _cart.totalItems += 1;
 
         setCart(_cart);
+        setIsAdding(true);
+        setTimeout(() => {
+            setIsAdding(false)
+        }, 1000);
     }
 
     const pizza = props.pizza;
@@ -52,7 +57,12 @@ const ProductCard = (props) => {
 
                 <div className="flex justify-between items-center mt-4">
                     <span>Rs. {pizza.price}</span>
-                    <button onClick={(e) => { addToCart(e, pizza) }} className="bg-yellow-500 py-1 px-4 rounded-full font-bold">ADD</button>
+                    <button
+                        onClick={(e) => { addToCart(e, pizza) }}
+                        className={`${isAdding ? "bg-green-500" : "bg-yellow-500"} py-1 px-4 rounded-full font-bold`}
+                        disabled={isAdding}>
+                        ADD{isAdding ? "ED" : ""}
+                    </button>
                 </div>
             </div>
         </NavLink>
